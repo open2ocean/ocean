@@ -15,6 +15,8 @@
       --color-ocean-light-yellow: #fcf8cc;
     }
 
+    
+
     .bg-ocean{
       background-color: var(--color-ocean-primary); 
     }
