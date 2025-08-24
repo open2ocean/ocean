@@ -278,7 +278,7 @@
     <div id="PostModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-50 z-40">
       <div class="bg-white p-6 m-5 w-full relative rounded shadow-lg w-96">
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-bold">Simple Modal</h2>
+          <h2 class="text-lg font-bold">Create Post</h2>
           <button onclick="closeModal()" class="text-gray-500 text-2xl">&times;</button>
         </div>
         <!-- Form Content -->
@@ -301,11 +301,10 @@
 
           <!-- Submit Button -->
           <button type="submit" class="bg-ocean text-white px-6 py-2 rounded">Post</button>
+          <button type="role" onclick="closePostModal()" class="bg-red-500 text-white px-4 py-2 rounded">
+            Discard
+          </button>
         </form>
-        <p class="mb-4">This is a working modal.</p>
-        <button onclick="closePostModal()" class="bg-red-500 text-white px-4 py-2 rounded">
-          Close
-        </button>
       </div>
     </div>
 
