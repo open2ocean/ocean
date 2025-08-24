@@ -8,18 +8,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <!-- jQuery (latest version) -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Include Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-
+  
   <style type="text/css">
     :root {
       --color-ocean-primary: #6a66b0;
       --color-ocean-blue: #1f70b8;
+      --color-ocean-purple: #dc8bfc;
       --color-ocean-light-blue: #d5f0f7;
       --color-ocean-green: #12b054;
       --color-ocean-light-green: #baf7c8;
       --color-ocean-skin: #ffd8a6;
       --color-ocean-light-yellow: #fcf8cc;
       --color-ocean-yellow-1: #ffe417;
+      --color-ocean-yellow-2: #fcba03;
       --color-ocean-green-1:  #b9f551;
       --color-ocean-teal-1: #aaf2d0;
     }
@@ -40,8 +44,9 @@
     
     .back-2{
       background: linear-gradient(270deg, var(--color-ocean-blue), var(--color-ocean-green), var(--color-ocean-primary));
+      /*background: linear-gradient(270deg, var(--color-ocean-blue), var(--color-ocean-purple), var(--color-ocean-primary));*/
       background-size: 200% 200%;
-      animation: gradientAnimation 15s ease infinite;
+      animation: gradientAnimation 80s ease infinite;
     }
 
     @keyframes gradientAnimation {
@@ -90,7 +95,7 @@
     .ocean-body{
 
         position: relative;  
-        width: 600px;
+        max-width: 600px;
     }
 
     .ocean-bottom-floating-bar ul{ display: flex; justify-content: space-around; }
@@ -233,27 +238,121 @@
     <div class="ocean-bottom-floating-bar back-2 text-white">
       <div>
         <ul>
-          <li class="ocean-text-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" x="0px" y="0px" width="30" viewBox="0 0 50 50">
-            <path d="M 24.960938 2.1015625 A 1.0001 1.0001 0 0 0 24.386719 2.3105469 L 1.3867188 20.210938 A 1.0001 1.0001 0 1 0 2.6132812 21.789062 L 4 20.708984 L 4 48 A 1.0001 1.0001 0 0 0 5 49 L 18.832031 49 A 1.0001 1.0001 0 0 0 19.158203 49 L 30.832031 49 A 1.0001 1.0001 0 0 0 31.158203 49 L 45 49 A 1.0001 1.0001 0 0 0 46 48 L 46 20.708984 L 47.386719 21.789062 A 1.0001 1.0001 0 1 0 48.613281 20.210938 L 25.613281 2.3105469 A 1.0001 1.0001 0 0 0 24.960938 2.1015625 z M 25 4.3671875 L 44 19.154297 L 44 47 L 32 47 L 32 29 A 1.0001 1.0001 0 0 0 31 28 L 19 28 A 1.0001 1.0001 0 0 0 18 29 L 18 47 L 6 47 L 6 19.154297 L 25 4.3671875 z M 20 30 L 30 30 L 30 47 L 20 47 L 20 30 z"></path>
-            </svg>
-          </li>
+          <!-- Home -->
           <li>
-            <svg fill="#ffffff" width="30" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.999 511.999" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M414.904,153.378l12.595,25.182c0.452,0.905,1.05,1.732,1.766,2.449l19.994,19.994c3.678,3.678,9.651,3.678,13.329,0 l46.652-46.652c3.678-3.678,3.678-9.651,0-13.329l-19.994-19.994c-0.717-0.717-1.545-1.314-2.449-1.766l-25.242-12.621 c-5.333-5.606-6.536-9.25-8.047-13.807c-1.664-5.018-3.729-11.264-10.914-18.458C383.766,15.548,316.216,5.444,257.259,46.66 c-2.517,1.766-4.019,4.651-4.019,7.723v26.658c0,3.166,1.707,6.05,4.352,7.799c2.628,1.749,6.101,1.997,9.011,0.768 c24.951-10.59,48.614-20.625,78.037-4.412l-10.24,30.737l-90.59,90.598c-34.091-34.125-63.846-69.035-88.098-103.774 c0.162-0.538,1.271-13.15,0.119-18.33c-6.281-28.117-40.806-47.394-69.111-47.753c-3.311-0.043-6.4,1.587-8.252,4.343 c-1.843,2.748-2.167,6.246-0.862,9.284l17.109,39.902l-37.777,18.893L40.291,70.247c-1.246-2.876-3.78-4.992-6.844-5.683 c-3.046-0.691-6.255,0.128-8.61,2.202c-23.296,20.429-28.86,60.066-11.981,84.676c5.598,8.166,18.517,22.46,45.193,20.028 c2.065,1.186,2.065,1.186,2.79,1.655c40.73,26.359,110.797,78.916,110.797,78.916L50.07,373.615l-39.211,26.138 c-1.749,1.161-3.055,2.876-3.712,4.864L0.483,424.61c-1.126,3.388-0.247,7.117,2.278,9.643l53.316,53.316 c2.526,2.526,6.255,3.405,9.643,2.278l19.994-6.664c1.988-0.666,3.703-1.971,4.864-3.712l26.138-39.211L242.676,314.3 c0.111-0.111,0.196-0.247,0.307-0.358c35.405,33.946,65.126,68.181,89.361,103.049c-2.295,5.18-3.081,8.166-3.081,8.166 c-1.22,6.34-0.998,12.245,0.154,17.425c6.281,28.117,40.806,47.394,69.111,47.753c3.311,0.043,6.4-1.587,8.252-4.344 c1.835-2.748,2.159-6.246,0.862-9.284l-17.109-39.902l37.777-18.893l16.649,38.852c1.237,2.876,3.78,4.992,6.835,5.683 c3.055,0.691,6.255-0.128,8.61-2.202c23.296-20.429,28.86-60.066,11.981-84.676c-5.359-7.817-18.466-21.052-42.991-20.036 c-52.463-34.116-101.128-71.347-144.469-110.131l91.042-91.042C386.642,143.676,403.819,143.343,414.904,153.378z M28.976,140.382 c-8.67-12.638-8.124-32.546-0.205-47.377l14.276,33.323c1.067,2.475,3.098,4.403,5.623,5.325c2.526,0.93,5.325,0.777,7.731-0.427 l55.287-27.648c4.642-2.347,6.656-7.834,4.617-12.595l-13.747-32.077c15.966,4.924,31.138,16.145,34.185,29.781 c3.849,17.212-13.022,35.891-47.761,52.77C60.822,156.126,39.514,155.751,28.976,140.382z M84.075,165.026 c1.195-0.393,10.035-4.198,13.696-6.11c18.944-9.199,32.213-18.551,41.301-27.639c2.654-2.654,4.838-5.265,6.818-7.859 c0.094-0.162,0.171-0.299,0.256-0.452c21.99,30.396,47.992,60.826,77.244,90.701l-36.19,25.856 C156.028,214.648,121.724,189.858,84.075,165.026z M228.792,301.517L102.721,427.589c-0.444,0.444-0.836,0.922-1.178,1.442 l-24.866,37.291l-11.401,3.797l-45.073-45.073l3.797-11.401l37.291-24.866c0.521-0.341,0.998-0.742,1.442-1.178L188.805,261.53 l39.518-28.228l28.698,28.698L228.792,301.517z M456.248,386.62c8.67,12.646,8.124,32.555,0.213,47.377l-14.276-33.323 c-1.067-2.475-3.098-4.403-5.623-5.325s-5.325-0.768-7.731,0.435l-55.287,27.648c-4.642,2.347-6.656,7.834-4.617,12.595 l13.747,32.077c-15.966-4.924-31.138-16.145-34.185-29.781c-3.849-17.212,13.022-35.891,47.761-52.77 C424.402,370.884,445.709,371.26,456.248,386.62z M402.898,361.438c-1.877,0.58-11.776,4.745-15.437,6.647 c-18.944,9.199-32.213,18.551-41.301,27.639c-1.067,1.067-1.818,2.108-2.748,3.166c-24.482-34.167-54.042-67.712-88.917-100.932 c0,0,22.938-32.435,23.168-32.896C315.832,298.769,357.901,331.222,402.898,361.438z M262.661,240.99l-13.329-13.329 l93.295-93.295l13.329,13.329L262.661,240.99z M353.413,118.494l11.486-34.458c1.357-4.053-0.205-8.525-3.755-10.846 c-34.509-22.75-64.102-15.915-89.062-6.212v-7.569c31.027-20.062,89.412-39.467,157.184,28.305 c4.028,4.028,4.949,6.818,6.349,11.042c1.903,5.743,4.267,12.902,13.645,22.281c0.717,0.717,1.545,1.314,2.449,1.766 l25.284,12.638l12.245,12.245l-33.323,33.323l-12.245-12.245l-12.638-25.284c-0.452-0.905-1.05-1.732-1.766-2.449 c-16.094-16.094-41.02-18.091-59.307-5.99L353.413,118.494z"></path> </g> </g> </g></svg>
+            <span class="fa-solid fa-house fa-2x"></span>
           </li>
+          <!-- Services -->
           <li>
-            <svg width="30" fill="#ffffff" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Layer1"> <path d="M16,6l-13,0c-0.552,0 -1,0.448 -1,1l0,22c0,0.552 0.448,1 1,1l22,0c0.552,0 1,-0.448 1,-1l0,-13c0,-0.552 -0.448,-1 -1,-1c-0.552,-0 -1,0.448 -1,1l0,12c0,0 -20,0 -20,0c0,0 0,-20 0,-20c-0,0 12,0 12,0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1Zm-9,19l14,-0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1l-14,0c-0.552,0 -1,0.448 -1,1c0,0.552 0.448,1 1,1Zm-0,-4l4,0c0.552,-0 1,-0.448 1,-1c-0,-0.552 -0.448,-1 -1,-1l-4,0c-0.552,-0 -1,0.448 -1,1c-0,0.552 0.448,1 1,1Zm22.707,-13.293c0.391,-0.39 0.391,-1.024 0,-1.414l-4,-4c-0.39,-0.391 -1.024,-0.391 -1.414,-0l-10,10c-0.14,0.139 -0.235,0.317 -0.274,0.511l-1,5c-0.065,0.328 0.037,0.667 0.274,0.903c0.236,0.237 0.575,0.339 0.903,0.274l5,-1c0.194,-0.039 0.372,-0.134 0.511,-0.274l10,-10Zm-22.707,9.293l4,0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1l-4,0c-0.552,0 -1,0.448 -1,1c0,0.552 0.448,1 1,1Zm0,-4l5,-0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1l-5,-0c-0.552,0 -1,0.448 -1,1c0,0.552 0.448,1 1,1Z"></path> </g> </g></svg>
+            <span class="fa-solid fa-tools fa-2x"></span>
           </li>
+          <!-- Create Post -->
           <li>
-            <svg width="30" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title></title> <g fill="none" fill-rule="evenodd" id="页面-1" stroke="none" stroke-width="1"> <g id="导航图标" transform="translate(-325.000000, -80.000000)"> <g id="编组" transform="translate(325.000000, 80.000000)"> <polygon fill="#FFFFFF" fill-opacity="0.01" fill-rule="nonzero" id="路径" points="24 0 0 0 0 24 24 24"></polygon> <polygon id="路径" points="22 7 12 2 2 7 2 17 12 22 22 17" stroke="#ffffff" stroke-linejoin="round" stroke-width="1.5"></polygon> <line id="路径" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" x1="2" x2="12" y1="7" y2="12"></line> <line id="路径" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" x1="12" x2="12" y1="22" y2="12"></line> <line id="路径" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" x1="22" x2="12" y1="7" y2="12"></line> <line id="路径" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" x1="17" x2="7" y1="4.5" y2="9.5"></line> </g> </g> </g> </g></svg>
+            <!-- Post Icon -->
+
+            <button onclick="openPostModal()">
+                <i class="fa-solid fa-plus fa-2x"></i>
+            </button>
+            <!-- <span class="fa-solid fa-pen-to-square fa-2x"></span> -->
           </li>
-          <li class="ocean-text-lg">
-            <svg viewBox="0 0 24 24" fill="none" width="30" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="4" stroke="#ffffff" stroke-width="1.5"></circle> <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+          <!-- Message -->
+          <li>
+            <span class="fa-solid fa-comment fa-2x"></span>
+          </li>
+          <!-- Products -->
+          <!--
+          <li>
+            <span class="fa-solid fa-box fa-2x"></span>
+          </li>
+          -->
+          <!-- Profile -->
+          <li>
+            <span class="fa-solid fa-user fa-2x"></span>
           </li>
         </ul>
       </div>
     </div>
 
+    <!-- Post Modal -->
+    
+    <div id="PostModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-50 z-40">
+      <div class="bg-white p-6 m-5 w-full relative rounded shadow-lg w-96">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-bold">Simple Modal</h2>
+          <button onclick="closeModal()" class="text-gray-500 text-2xl">&times;</button>
+        </div>
+        <!-- Form Content -->
+        <form id="postForm">
+          <!-- Text Input -->
+          <textarea placeholder="What's on your mind?" class="w-full p-2 border rounded mb-4 resize-none" rows="4"></textarea>
+
+          <!-- Facebook-style Upload Button -->
+          <div class="mb-4">
+            <label class="block mb-2 font-semibold">Add to your post</label>
+            <label class="flex items-center justify-center border border-gray-300 rounded p-4 cursor-pointer hover:bg-gray-100">
+              <i class="fa-solid fa-image fa-2x text-gray-500 mr-3"></i>
+              <span class="text-gray-700 font-medium">Photo/Video</span>
+              <input type="file" accept="image/*,video/*" id="postImage" class="hidden">
+            </label>
+          </div>
+
+          <!-- Preview -->
+          <div id="imagePreview" class="mb-4"></div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="bg-ocean text-white px-6 py-2 rounded">Post</button>
+        </form>
+        <p class="mb-4">This is a working modal.</p>
+        <button onclick="closePostModal()" class="bg-red-500 text-white px-4 py-2 rounded">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function openPostModal() {
+        document.getElementById("PostModal").classList.remove("hidden");
+        document.getElementById("PostModal").classList.add("flex");
+      }
+
+      function closePostModal() {
+        document.getElementById("PostModal").classList.remove("flex");
+        document.getElementById("PostModal").classList.add("hidden");
+      }
+
+      // Close if clicked outside the box
+      window.addEventListener("click", function (e) {
+        const modal = document.getElementById("PostModal");
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Image/Video Preview
+      const postImage = document.getElementById("postImage");
+      const imagePreview = document.getElementById("imagePreview");
+
+      postImage.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            // Display image or video preview
+            if(file.type.startsWith("image/")) {
+              imagePreview.innerHTML = `<img src="${e.target.result}" class="max- h-96 rounded">`;
+            } else if(file.type.startsWith("video/")) {
+              imagePreview.innerHTML = `<video controls class="h-96 rounded"><source src="${e.target.result}" type="${file.type}"></video>`;
+            }
+          }
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+
+    
+
+    <!-- Cloak Style (important for hiding modal before Alpine loads) -->
+    
     <!-- MOBILE NAV -->
     <nav id="mobileMenu" class="bg-white px-4 py-2 hidden flex-col space-y-2 md:hidden shadow">
       <a href="#" class="text-sm text-gray-700">Home</a>
